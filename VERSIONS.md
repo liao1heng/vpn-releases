@@ -1,0 +1,8 @@
+# 下载版本
+
+## v0.1.0 (2026-10-11)
+
+来源提交：`f81ee1a21e4a3f27bc512ea1a6aa9584bdd27e33`。macOS arm64 / Windows x64，Windows未实机验收。
+
+[下载](https://github.com/liao1heng/vpn-releases/releases/tag/v0.1.0)
+
