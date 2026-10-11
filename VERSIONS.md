@@ -23,3 +23,9 @@
 
 [下载](https://github.com/liao1heng/vpn-releases/releases/tag/v0.1.3)
 
+## v0.1.4 (2026-10-11)
+
+来源提交：`43813b2a2aca6f9717f1676d791158308952641b`。macOS arm64 / Windows x64；Windows本机已完成安装包ifconfig.me单域名验收，防火墙关闭，断开恢复原路径。云电脑Google及其他未测边界待验收。
+
+[下载](https://github.com/liao1heng/vpn-releases/releases/tag/v0.1.4)
+

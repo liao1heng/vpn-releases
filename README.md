@@ -27,6 +27,8 @@ sudo bash install-macos.sh "$HOME/Library/Application Support/personal-vpn" "$US
 
 之后双击vpn.exe即可；新版本解压到新目录再双击，会自动准备升级并保留设备配置和白名单。取消管理员确认或准备失败时显示原因，可重新打开重试。无须自己运行PowerShell或复制device.json。
 
+Windows无需开启或安装防火墙，程序不创建防直连规则，也不改变整机防火墙开关。受保护安装目录中的vpn.exe也可双击打开。
+
 因为虚拟网卡、持久IPv6保护和后台需要系统权限，这个入口会自动把运行文件放到Program Files\PersonalVPN，并建立本项目SYSTEM计划任务；配置保存在当前用户LOCALAPPDATA\personal-vpn。它不需要安装向导，但不是完全无系统改动的绿色版。首次准备所需权限仍须由用户确认，不会自动重启机器。Windows实际验收进度以版本说明为准，未实测项目不能仅凭构建保证。
 
 ## 服务密码与操作
@@ -52,6 +54,6 @@ IPv4单地址等价于/32；CIDR中的主机位会规范化。IPv6、默认全�
 
 只代理白名单域名和明确列出的IPv4地址/网段，其他目标保留原IPv4路径；不自动修改旧VPN、原DNS或hosts。网段按目标IP覆盖其中全部站点，包括共享CDN；只列网段不会为未列出的域名自动增加加密DNS保护。首次启用需要管理员权限禁用整机对外IPv6，退出或停止后台后保持禁用，不自动重启机器。
 
-白名单VPN/DNS不可用时请求失败；网段通过独立防火墙规则防止核心退出后回退直连，断开时保留。Windows守护每60秒刷新出网网卡集合，新网卡出现到下次刷新之间的窗口及旧VPN同网段路由优先级尚未实机验收。域名规则仍有独立DoH、ECH、hosts及缓存等透明接管限制；网段、Windows与UDP/QUIC等未测项不保证完整覆盖。
+主动断开、核心退出或确认隧道不可用后撤回本项目路由和域名规则，允许新请求使用原来的IPv4路径；自动恢复后重新使用VPN。原连接及应用缓存可能需要重建，不能保证无缝切换。连接期间白名单DNS主备查询失败仍报错，避免错误解析。IPv6禁用保持不变，Windows独立守护每60秒复核；新网卡、系统重启及原VPN共存按实际验收记录标明。域名规则仍有独立DoH、ECH、hosts及缓存等透明接管限制；未测项不保证完整覆盖。
 
 使用 PACKAGES.sha256 核对压缩包；包内 REVISION 是来源提交号。macOS在下载目录运行 `shasum -a 256 -c PACKAGES.sha256`；Windows用 `Get-FileHash 文件名 -Algorithm SHA256` 对照。第三方组件、许可证及固定上游源码地址见随包 THIRD_PARTY.md 和 sing-box-LICENSE。
