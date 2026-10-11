@@ -2,11 +2,11 @@
 
 下载：[公开 Releases](https://github.com/liao1heng/vpn-releases/releases)。首次版本 v0.1.0 为预发布版。选择 macOS Apple Silicon（arm64）或 Windows 10/11 x64；Intel Mac 和 Windows ARM 不在本次交付范围。无需安装 Go。
 
-## 安装前授权
+## 首次使用
 
-本服务仅供已获管理员授权的设备使用。下载本身不授予 VPN 访问权限；服务密码也不替代设备注册。联系管理员完成本设备注册，私钥在当前设备生成并留在本机，取得独立的 device.json 配置。不要与其他设备共用配置，也不要把私钥、设备配置或控制 token 上传到 GitHub。
+Windows首次打开输入管理员提供的服务密码，自动注册本设备。持有服务密码的人可以加入本服务，每台电脑仍使用独立密钥和配置；私钥只留在当前电脑。macOS仍需联系管理员完成设备登记。不要共用设备配置，也不要把私钥、设备配置或控制token上传到GitHub。
 
-管理员登记工具不随公开包提供，普通用户不需要服务器 SSH 账号或密码。解压到新的目录，管理员按私有项目流程完成授权后，再安装客户端。
+普通用户不需要服务器SSH账号或密码，管理员工具不随公开包提供。Windows按下面的双击流程操作即可。
 
 ## macOS arm64
 
@@ -20,14 +20,14 @@ sudo bash install-macos.sh "$HOME/Library/Application Support/personal-vpn" "$US
 
 ## Windows x64
 
-在解压目录的管理员 PowerShell 执行，配置目录必须已含本设备的 device.json：
+1. 下载Windows ZIP，先完整解压，不在压缩包内直接运行。
+2. 双击解压目录中的 **vpn.exe**。
+3. 首次输入服务密码，等待自动登记；随后完成一次Windows管理员确认。
+4. 客户端自动打开并发起连接，以界面实际“已连接”状态为准。
 
-```powershell
-.\install-windows.ps1 -HomeDir "$env:LOCALAPPDATA\personal-vpn"
-& "$env:ProgramFiles\PersonalVPN\vpn.exe" tui --home "$env:LOCALAPPDATA\personal-vpn"
-```
+之后双击vpn.exe即可；新版本解压到新目录再双击，会自动准备升级并保留设备配置和白名单。取消管理员确认或准备失败时显示原因，可重新打开重试。无须自己运行PowerShell或复制device.json。
 
-后台以 SYSTEM 计划任务运行，升级保留配置。Windows 脚本、NRPT、驱动及交互尚未实机验收；交叉编译成功不代表实机验证完成。
+因为虚拟网卡、持久IPv6保护和后台需要系统权限，这个入口会自动把运行文件放到Program Files\PersonalVPN，并建立本项目SYSTEM计划任务；配置保存在当前用户LOCALAPPDATA\personal-vpn。它不需要安装向导，但不是完全无系统改动的绿色版。首次准备所需权限仍须由用户确认，不会自动重启机器。Windows实际验收进度以版本说明为准，未实测项目不能仅凭构建保证。
 
 ## 服务密码与操作
 
