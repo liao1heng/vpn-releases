@@ -37,8 +37,21 @@ sudo bash install-macos.sh "$HOME/Library/Application Support/personal-vpn" "$US
 
 首页使用连接按钮，导航包含连接、在线、白名单、记录。q只关闭界面，后台继续；主动断开不自动重连。悬停导航/问号显示浮层，点击或键盘 m/? 固定，Esc收起；1–4切换面板。基础白名单从 GitHub 刷新，本机追加编辑 whitelist.custom.txt，一行一条；含#整行不加载。保存后点“重载TXT”，已有连接需重建。
 
+白名单支持以下格式混写，合并去重最多256条：
+
+```text
+example.com
+*.example.org
+142.250.0.0/15
+8.8.8.8
+```
+
+IPv4单地址等价于/32；CIDR中的主机位会规范化。IPv6、默认全网段、本机/隧道保留地址及覆盖VPN控制地址的规则会被拒绝。旧版客户端无法加载网段，须用新包完整升级后台后重载TXT；仅更新界面不够。基础列表现包含21条域名与旧VPN的34条IPv4地址/网段。
+
 ## 网络行为与校验
 
-只代理白名单域名，其他目标保留原IPv4路径；不自动修改旧VPN、原DNS或hosts。首次启用需要管理员权限禁用整机对外IPv6，退出或停止后台后保持禁用，不自动重启机器。白名单VPN/DNS不可用时请求失败，不自动直连。独立DoH、ECH、硬编码IP、hosts覆盖及缓存的透明接管存在限制；Windows与UDP/QUIC等未测项不保证完整覆盖。
+只代理白名单域名和明确列出的IPv4地址/网段，其他目标保留原IPv4路径；不自动修改旧VPN、原DNS或hosts。网段按目标IP覆盖其中全部站点，包括共享CDN；只列网段不会为未列出的域名自动增加加密DNS保护。首次启用需要管理员权限禁用整机对外IPv6，退出或停止后台后保持禁用，不自动重启机器。
+
+白名单VPN/DNS不可用时请求失败；网段通过独立防火墙规则防止核心退出后回退直连，断开时保留。Windows守护每60秒刷新出网网卡集合，新网卡出现到下次刷新之间的窗口及旧VPN同网段路由优先级尚未实机验收。域名规则仍有独立DoH、ECH、hosts及缓存等透明接管限制；网段、Windows与UDP/QUIC等未测项不保证完整覆盖。
 
 使用 PACKAGES.sha256 核对压缩包；包内 REVISION 是来源提交号。macOS在下载目录运行 `shasum -a 256 -c PACKAGES.sha256`；Windows用 `Get-FileHash 文件名 -Algorithm SHA256` 对照。第三方组件、许可证及固定上游源码地址见随包 THIRD_PARTY.md 和 sing-box-LICENSE。
