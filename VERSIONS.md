@@ -29,3 +29,9 @@
 
 [下载](https://github.com/liao1heng/vpn-releases/releases/tag/v0.1.4)
 
+## v0.1.5 (2026-10-11)
+
+来源提交：`0168ee964f115ec3d08b8052237da5f5e9a04d53`。macOS arm64 / Windows x64；完成代码测试与构建校验，新安装包及Windows独立窗口实机验收待用户完成，不能沿用旧版测试结果。云电脑Google及其他未测边界待验收。
+
+[下载](https://github.com/liao1heng/vpn-releases/releases/tag/v0.1.5)
+
