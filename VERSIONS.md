@@ -47,3 +47,9 @@
 
 [下载](https://github.com/liao1heng/vpn-releases/releases/tag/v0.1.7)
 
+## v0.1.8 (2026-10-12)
+
+来源提交：`815a09003626a49a571eb94dc29a3fb0fa4b2c5d`。白名单业务改为 TCP443 HTTPS 按需代理，取消自动心跳、保活、探测、在线轮询与自动DNS诊断；空闲显示按需待命。macOS arm64 / Windows x64 客户端及独立 Windows 离线诊断包通过代码测试、构建与摘要校验。实际网络、10分钟空闲抓包、Windows完整安装和Mac验收范围以本版本README为准，不沿用旧版结果。Windows保留IPv6持久注册表，不禁用网卡绑定；后台仅本地检查，外部IPv6探测须用户手动触发。
+
+[下载](https://github.com/liao1heng/vpn-releases/releases/tag/v0.1.8)
+
