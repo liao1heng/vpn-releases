@@ -35,3 +35,9 @@
 
 [下载](https://github.com/liao1heng/vpn-releases/releases/tag/v0.1.5)
 
+## v0.1.6 (2026-10-12)
+
+来源提交：`becd2b906bec691691f2d1095f04f9d19a75ca4a`。macOS arm64 / Windows x64 客户端及独立 Windows 离线诊断包；完成代码测试与构建校验，新安装包、诊断程序及Windows独立窗口云电脑实机验收待用户完成。诊断包无需服务密码，只模拟系统准备/TUN路由，带五分钟自动恢复任务；不测试真实VPN握手。
+
+[下载](https://github.com/liao1heng/vpn-releases/releases/tag/v0.1.6)
+

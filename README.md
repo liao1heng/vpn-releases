@@ -2,6 +2,8 @@
 
 下载：[公开 Releases](https://github.com/liao1heng/vpn-releases/releases)。首次版本 v0.1.0 为预发布版。选择 macOS Apple Silicon（arm64）或 Windows 10/11 x64；Intel Mac 和 Windows ARM 不在本次交付范围。无需安装 Go。
 
+云电脑连接故障排查另有 `personal-vpn-windows-diagnostic.zip`：完整解压后双击 `windows-diagnostic\run.cmd`，不需服务密码或登记设备。它分阶段测试本机网络准备和虚拟网卡路由，在窗口与 `%ProgramData%\PersonalVPN-Diagnostic` 保存日志；正常结束立即恢复改动，失联时有五分钟后及下次开机的恢复任务。该工具不测试真实VPN握手，使用前阅读包内 README。
+
 ## 首次使用
 
 Windows首次打开输入管理员提供的服务密码，自动注册本设备。持有服务密码的人可以加入本服务，每台电脑仍使用独立密钥和配置；私钥只留在当前电脑。macOS仍需联系管理员完成设备登记。不要共用设备配置，也不要把私钥、设备配置或控制token上传到GitHub。
