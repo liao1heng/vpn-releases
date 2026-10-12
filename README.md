@@ -2,7 +2,7 @@
 
 下载：[公开 Releases](https://github.com/liao1heng/vpn-releases/releases)。首次版本 v0.1.0 为预发布版。选择 macOS Apple Silicon（arm64）或 Windows 10/11 x64；Intel Mac 和 Windows ARM 不在本次交付范围。无需安装 Go。
 
-云电脑连接故障排查另有 `personal-vpn-windows-diagnostic.zip`：完整解压后双击 `windows-diagnostic\run.cmd`，不需服务密码或登记设备。它分阶段测试本机网络准备和虚拟网卡路由，在窗口与 `%ProgramData%\PersonalVPN-Diagnostic` 保存日志；正常结束立即恢复改动，失联时有五分钟后及下次开机的恢复任务。该工具不测试真实VPN握手，使用前阅读包内 README。
+云电脑连接故障排查另有 `personal-vpn-windows-diagnostic.zip`：完整解压后双击 `windows-diagnostic\run.cmd`，不需服务密码或登记设备。它只读列出 IPv6 网卡绑定，再分阶段测试注册表和虚拟网卡路由，不重置网卡；在窗口与 `%ProgramData%\PersonalVPN-Diagnostic` 保存日志，正常结束立即恢复改动，失联时有五分钟后及下次开机的恢复任务。该工具不测试真实VPN握手，使用前阅读包内 README。旧版 v0.1.6 诊断包会逐网卡禁用 IPv6 绑定，请勿在云电脑上再次运行。
 
 ## 首次使用
 
@@ -56,7 +56,7 @@ IPv4单地址等价于/32；CIDR中的主机位会规范化。IPv6、默认全�
 
 ## 网络行为与校验
 
-只代理白名单域名和明确列出的IPv4地址/网段，其他目标保留原IPv4路径；不自动修改旧VPN、原DNS或hosts。网段按目标IP覆盖其中全部站点，包括共享CDN；只列网段不会为未列出的域名自动增加加密DNS保护。首次启用需要管理员权限禁用整机对外IPv6，退出或停止后台后保持禁用，不自动重启机器。
+只代理白名单域名和明确列出的IPv4地址/网段，其他目标保留原IPv4路径；不自动修改旧VPN、原DNS或hosts。网段按目标IP覆盖其中全部站点，包括共享CDN；只列网段不会为未列出的域名自动增加加密DNS保护。首次启用需要管理员权限设置整机持久禁用对外 IPv6，并验证当前外部 IPv6 无法连接；退出或停止后台后保持该设置，不自动重启机器。Windows 不再逐网卡关闭 IPv6 绑定，因此不会为此重置云电脑主网卡；注册表设置可能需重启才能生效，验证失败时客户端拒绝连接并提示原因。网卡属性中 IPv6 仍显示勾选属于预期。
 
 主动断开、核心退出或确认隧道不可用后撤回本项目路由和域名规则，允许新请求使用原来的IPv4路径；自动恢复后重新使用VPN。原连接及应用缓存可能需要重建，不能保证无缝切换。连接期间白名单DNS主备查询失败仍报错，避免错误解析。IPv6禁用保持不变，Windows独立守护每60秒复核；新网卡、系统重启及原VPN共存按实际验收记录标明。域名规则仍有独立DoH、ECH、hosts及缓存等透明接管限制；未测项不保证完整覆盖。
 
