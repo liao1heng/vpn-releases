@@ -65,3 +65,9 @@
 
 [下载](https://github.com/liao1heng/vpn-releases/releases/tag/v0.1.10)
 
+## v0.1.11 (2026-10-13)
+
+来源提交：`8cc1005e2dc568e32273d433d4af62875c27a187`。白名单采用B来源分行，远端与本地域名数及更新时间独立展示，IP/网段另计；手动重载显示加载中、完成或失败沿用缓存，来源摘要固定，规则可滚动。需完整升级后台，旧后台提示升级。Windows保留系统IPv6，采用系统代理的网页只用IPv4；Mac原有网络行为保持。客户端与独立Windows诊断包通过代码测试、构建及附件摘要校验；本版白名单Windows可见窗口、已连接核心重载及Mac完整升级尚未实机验收。
+
+[下载](https://github.com/liao1heng/vpn-releases/releases/tag/v0.1.11)
+
