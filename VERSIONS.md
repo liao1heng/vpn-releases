@@ -59,3 +59,9 @@
 
 [下载](https://github.com/liao1heng/vpn-releases/releases/tag/v0.1.9)
 
+## v0.1.10 (2026-10-13)
+
+来源提交：`8402af1532905f0bf54d0f649063ba1b97ddab08`。Windows保留云主机系统IPv6，当前用户浏览器系统代理只用IPv4；白名单走按需HTTPS代理，其他网页走原IPv4路径，断开后保留IPv4直连网页代理。旧版独立IPv6任务在完整升级时移除。macOS沿用原全局IPv6禁用。客户端和独立Windows诊断包通过代码测试、构建与摘要校验；云主机实机浏览器、重启和远程控制保持性仍需现场验收。
+
+[下载](https://github.com/liao1heng/vpn-releases/releases/tag/v0.1.10)
+
