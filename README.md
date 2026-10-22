@@ -1,5 +1,7 @@
 # Personal VPN 客户端
 
+2026-10-22：Windows已保存原代理备份时，若重启后仅本项目代理开关关闭，重新打开新版客户端会自动恢复；代理地址、绕过列表或PAC已改变时仍提示冲突，不覆盖其他代理。请使用新版本完整解压后的vpn.exe，旧快捷方式可能仍指向旧脚本。Windows客户端使用Windows原生构建；自动化测试不代表云电脑实际重启验收。
+
 下载：[公开 Releases](https://github.com/liao1heng/vpn-releases/releases)。首次版本 v0.1.0 为预发布版。选择 macOS Apple Silicon（arm64）或 Windows 10/11 x64；Intel Mac 和 Windows ARM 不在本次交付范围。无需安装 Go。
 
 云电脑不必为新版客户端下载旧诊断程序。独立 `personal-vpn-windows-diagnostic.zip` 只供需要额外排查时使用，完整解压后双击 `windows-diagnostic\run.cmd`；它不测试真实VPN握手。旧版 v0.1.6 诊断包会逐网卡禁用 IPv6 绑定，请勿在云电脑上再次运行。

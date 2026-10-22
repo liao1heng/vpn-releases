@@ -71,3 +71,9 @@
 
 [下载](https://github.com/liao1heng/vpn-releases/releases/tag/v0.1.11)
 
+## v0.1.12 (2026-10-22)
+
+来源提交：`1e3923c7cd07b1caa4ae72b3f95bbfec074fc5c6`。修复Windows重启后本项目代理开关关闭导致启动失败：已有备份且地址、绕过列表、无PAC状态仍匹配时自动恢复，其他代理变更继续拒绝覆盖，保留最初备份。Windows原生构建，并执行Go测试/vet及PowerShell 5隔离注册表回归；公开附件核对SHA256。云电脑完整升级、真实重启及长期运行尚未实机验收，保持预发布。
+
+[下载](https://github.com/liao1heng/vpn-releases/releases/tag/v0.1.12)
+
