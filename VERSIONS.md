@@ -83,3 +83,9 @@
 
 [下载](https://github.com/liao1heng/vpn-releases/releases/tag/v0.1.13)
 
+## v0.1.14 (2026-10-22)
+
+来源提交：`a0d96a832eae54c66a3ca0c9e3f66cfec825cd6b`。修复Windows网络变化后网页代理沿用失效的登记DNS：连接和断开模式均读取当前活动网卡DNS；白名单继续使用受保护解析，系统DNS/hosts不修改，macOS原行为保留。后台任务允许电池供电，切换电源不停止。Windows原生构建及Go/PS5回归验证；公开附件核对SHA256。既有版本现场修正项目DNS后百度恢复、Google收到200、ChatGPT收到Cloudflare验证页；新版完整升级、实际切网/拔电源及浏览器登录仍待单独验收，保持预发布。
+
+[下载](https://github.com/liao1heng/vpn-releases/releases/tag/v0.1.14)
+
