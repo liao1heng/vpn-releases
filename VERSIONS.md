@@ -77,3 +77,9 @@
 
 [下载](https://github.com/liao1heng/vpn-releases/releases/tag/v0.1.12)
 
+## v0.1.13 (2026-10-22)
+
+来源提交：`66829c94ee117379de05a3b46df1aaab894bcd5a`。修复Windows本机5355/UDP被DNS Client等系统组件占用时后台无法启动：由系统分配并同时保留TCP/UDP回环DNS端口，核心使用实际端口，重载复用、退出释放；不修改系统DNS或停止系统服务，macOS仍使用5355。Windows原生构建并执行Go测试/vet、真实回环DNS及端口冲突回归、PowerShell 5隔离注册表回归；公开附件核对SHA256。受影响电脑完整升级、真实业务、重启与长期运行尚未实机验收，保持预发布。
+
+[下载](https://github.com/liao1heng/vpn-releases/releases/tag/v0.1.13)
+
